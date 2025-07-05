@@ -3,7 +3,11 @@ import styles from '../styles/Home.module.css';
 
 export default function Home() {
   const [popupVisivel, setPopupVisivel] = useState(false);
-  const meuLink = WhatsAppLink.gerar('+55 48 991897594', 'Oi! Quero saber mais sobre seus serviços.');
+
+  const meuLink = WhatsAppLink.gerar(
+    '+55 48 991897594',
+    'Oi! Quero saber mais sobre seus serviços.'
+  );
 
   function abrirPopup() {
     setPopupVisivel(true);
@@ -20,9 +24,10 @@ export default function Home() {
         <p className={styles.title}>Bem vindo à melhor Hamburgueria de Cocal do Sul</p>
         <p className={styles.subtitle}>Faça seu pedido</p>
         <div className={styles.buttons}>
-          
           <button onClick={abrirPopup}>Peça pelo site</button>
-          <button onClick={() => window.open(`${meuLink}`, '_blank')}>Peça pelo Whatsapp</button>
+          <button onClick={() => window.open(meuLink, '_blank')}>
+            Peça pelo Whatsapp
+          </button>
           <button onClick={abrirPopup}>Ver cardápio</button>
         </div>
       </div>
@@ -30,7 +35,7 @@ export default function Home() {
       {/* Popup */}
       {popupVisivel && (
         <div className={styles.popupOverlay} onClick={fecharPopup}>
-          <div className={styles.popup} onClick={e => e.stopPropagation()}>
+          <div className={styles.popup} onClick={(e) => e.stopPropagation()}>
             <h2>Site em Desenvolvimento</h2>
             <p>Estamos trabalhando para lançar o site completo em breve.</p>
             <p>Por enquanto, você pode fazer seu pedido somente pelo WhatsApp.</p>
@@ -38,6 +43,20 @@ export default function Home() {
           </div>
         </div>
       )}
+
+      {/* Footer fixo */}
+      <footer className={styles.footer}>
+        <p>
+          © {new Date().getFullYear()} Speed Burger. Todos os direitos reservados.
+        </p>
+        <p>
+          CNPJ: 51.455.998/0001-50 • (48) 99189‑7594 • <a href="mailto:speedburgercocal@gmail.com" className={styles.link}>speedburgercocal@gmail.com</a>
+        </p>
+        <p>
+          <a href="/politica-de-privacidade" className={styles.link}>Política de Privacidade</a>
+        </p>
+      </footer>
+
     </div>
   );
 }
@@ -48,5 +67,5 @@ const WhatsAppLink = {
     const numeroLimpo = numero.replace(/\D/g, '');
     const texto = encodeURIComponent(mensagem);
     return `https://api.whatsapp.com/send?1=${this.idioma}&phone=${numeroLimpo}&text=${texto}`;
-  }
+  },
 };
