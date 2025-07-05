@@ -1,0 +1,9 @@
+# *
+User-agent: *
+Allow: /
+
+# Host
+Host: https://speedburgercocal.com.br
+
+# Sitemaps
+Sitemap: https://speedburgercocal.com.br/sitemap.xml

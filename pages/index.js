@@ -1,5 +1,9 @@
 import { useState } from 'react';
 import styles from '../styles/Home.module.css';
+import Head from 'next/head';
+import { WhatsAppLink } from '../lib/whatsapp';
+
+
 
 export default function Home() {
   const [popupVisivel, setPopupVisivel] = useState(false);
@@ -18,10 +22,25 @@ export default function Home() {
   }
 
   return (
+    <>
+      <Head>
+        <title>Speed Burger | Hamburgueria em Cocal do Sul</title>
+        <meta name="description" content="Os melhores hambúrgueres artesanais de Cocal do Sul. Faça seu pedido online ou via WhatsApp!" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <meta name="robots" content="index, follow" />
+        <meta property="og:title" content="Speed Burger | Hamburgueria em Cocal do Sul" />
+        <meta property="og:description" content="Peça já seu hambúrguer artesanal feito com ingredientes frescos. Entrega rápida e sabor garantido!" />
+        <meta property="og:image" content="/StandardLogo.png" /> 
+        <meta property="og:url" content="https://speedburgercocal.com.br" /> 
+        <meta name="twitter:card" content="summary_large_image" />
+        <link rel="canonical" href="https://speedburgercocal.com.br" />
+      </Head>
+
     <div className={styles.background}>
+      <main>
       <div className={styles.container}>
         <img src="/StandardLogo.png" alt="Logo" className={styles.logo} />
-        <p className={styles.title}>Bem vindo à melhor Hamburgueria de Cocal do Sul</p>
+        <h1 className={styles.title}>Bem vindo à melhor Hamburgueria de Cocal do Sul</h1>
         <p className={styles.subtitle}>Faça seu pedido</p>
         <div className={styles.buttons}>
           <button onClick={abrirPopup}>Peça pelo site</button>
@@ -31,6 +50,7 @@ export default function Home() {
           <button onClick={abrirPopup}>Ver cardápio</button>
         </div>
       </div>
+      </main>
 
       {/* Popup */}
       {popupVisivel && (
@@ -58,14 +78,6 @@ export default function Home() {
       </footer>
 
     </div>
+    </>
   );
 }
-
-const WhatsAppLink = {
-  idioma: 'pt_BR',
-  gerar(numero, mensagem) {
-    const numeroLimpo = numero.replace(/\D/g, '');
-    const texto = encodeURIComponent(mensagem);
-    return `https://api.whatsapp.com/send?1=${this.idioma}&phone=${numeroLimpo}&text=${texto}`;
-  },
-};
