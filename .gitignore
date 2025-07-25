@@ -1,3 +1,18 @@
+# Arquivos do macOS
+.DS_Store
+
+# Arquivos temporários ou de backup
+*.swp
+*.bak
+*.tmp
+
+# Arquivos auxiliares locais
+lista.txt
+listar_projeto.sh
+
+# Arquivos de design (caso não sejam essenciais)
+*.cdr
+
 # Logs
 logs
 *.log
