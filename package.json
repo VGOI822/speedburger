@@ -20,13 +20,13 @@
   },
   "homepage": "https://github.com/VGOI822/speedburger#readme",
   "dependencies": {
-    "@prisma/client": "^6.11.1",
+    "@prisma/client": "^6.12.0",
     "next": "^15.3.2",
     "next-sitemap": "^4.2.3",
     "react": "^19.1.0",
     "react-dom": "^19.1.0"
   },
   "devDependencies": {
-    "prisma": "^6.11.1"
+    "prisma": "^6.12.0"
   }
 }

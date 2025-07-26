@@ -65,7 +65,7 @@ export default function Home() {
         <link rel="canonical" href="https://speedburgercocal.com.br" />
       </Head>
 
-      <div className={styles.background}>      
+      <div className={styles.background}>
         <main className={styles.heroSection}>
           <div className={styles.heroBackground}></div>
           <div className={styles.heroContainer}>
@@ -87,7 +87,6 @@ export default function Home() {
         <section ref={secaoAvaliacaoRef} className={styles.extraSection}>
           <div className={styles.extraContent}>
             <h2>Avaliações</h2>
-
             {opinioes.map(({ id, nome, nota, mensagem }) => (
               <div key={id} className={styles.opiniao}>
                 <div className={styles.opiniaoHeader}>

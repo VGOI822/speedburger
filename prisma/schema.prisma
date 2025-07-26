@@ -64,3 +64,12 @@ model OrderItem {
   order          OrderHistory  @relation(fields: [orderId], references: [id], onDelete: Cascade)
   orderId        String        @db.Uuid
 }
+
+model Avaliacoes{
+  id             String        @id @default(uuid()) @db.Uuid
+  nome           String
+  sobrenome      String
+  avaliado       Int
+  mensagem       String
+  createdAt      DateTime     @default(now())
+}
