@@ -14,11 +14,11 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
-model Avaliacoes{
-  id             String        @id @default(uuid()) @db.Uuid
-  nome           String
-  sobrenome      String
-  avaliado       Int
-  mensagem       String
-  createdAt      DateTime     @default(now())
+model Avaliacoes {
+  id        String   @id @default(uuid()) @db.Uuid
+  nome      String
+  sobrenome String
+  avaliado  Int
+  mensagem  String
+  createdAt DateTime @default(now())
 }

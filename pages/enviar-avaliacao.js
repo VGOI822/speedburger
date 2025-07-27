@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { useRouter } from 'next/router';
 import styles from '../styles/avaliacao.module.css';
 
-export default function Contato() {
+export default function Avaliacao() {
     const [form, setForm] = useState({
         nome: '',
         sobrenome: '',

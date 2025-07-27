@@ -1,8 +1,8 @@
 # speedburger
 
-{opinioes.map(({ id, nome, nota, mensagem }) => (
-              <div key={id} className={styles.opiniao}>
-                <strong>{nome}</strong> - Nota: {nota}/5
-                <p>{mensagem}</p>
-              </div>
-            ))}
+GENERATE MIGRATIONS DEV
+*ADICIONAR ALTERACOES NOVAS NO BANCO DE DADOS*
+npm run dev:migrate
+
+*GERARA A PASTA MIGRATIONS E ADICIONAR NO BANCO DE DADOS*
+npm run dev:generate

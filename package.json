@@ -6,7 +6,9 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
-    "postbuild": "next-sitemap"
+    "postbuild": "next-sitemap",
+    "dev:migrate": "dotenv -e .env.development.local -- npx prisma migrate dev --schema=prisma-dev/schema.prisma",
+    "dev:generate": "dotenv -e .env.development.local -- npx prisma generate --schema=prisma-dev/schema.prisma"
   },
   "repository": {
     "type": "git",
@@ -27,6 +29,7 @@
     "react-dom": "^19.1.0"
   },
   "devDependencies": {
+    "dotenv-cli": "^9.0.0",
     "prisma": "^6.12.0"
   }
 }
