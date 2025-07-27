@@ -5,11 +5,9 @@
   "main": "index.js",
   "scripts": {
     "dev": "dotenv -e .env.development.local -- next dev",
-    "prod": "dotenv -e .env -- next dev",
     "build": "next build",
     "postbuild": "next-sitemap",
-    "prod:generate": "dotenv -e .env -- npx prisma generate --schema=prisma/schema.prisma",
-    "dev:generate": "dotenv -e .env.development.local -- npx prisma generate --schema=prisma-dev/schema.prisma"
+    "postinstall": "prisma generate"
   },
   "repository": {
     "type": "git",
