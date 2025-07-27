@@ -97,7 +97,7 @@ export default function Home({ opinioes }) {
 
 export async function getServerSideProps() {
   try {
-    const res = await fetch('https://www./api/avaliacoes');
+    const res = await fetch('https://www.speedburgercocal.com.br/api/avaliacoes');
     const opinioes = await res.json();
 
     return {
