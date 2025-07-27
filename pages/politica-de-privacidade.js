@@ -1,12 +1,12 @@
 import { useRouter } from 'next/router';
-import styles from '../styles/Home.module.css'; // mantém o background
+//import styles from '../styles/Home.module.css'; // mantém o background
 import politicaStyles from '../styles/PoliticaDePrivacidade.module.css'; // novo css para o conteúdo
 
 export default function PoliticaDePrivacidade() {
   const router = useRouter();
 
   return (
-    <div className={styles.background}>
+    <div className={politicaStyles.background}>
       <button
         aria-label="Voltar"
         className={politicaStyles.backButton}

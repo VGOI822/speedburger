@@ -4,9 +4,12 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "dev": "next dev",
+    "dev": "dotenv -e .env.development.local -- next dev",
+    "prod": "dotenv -e .env -- next dev",
     "build": "next build",
-    "postbuild": "next-sitemap"
+    "postbuild": "next-sitemap",
+    "prod:generate": "dotenv -e .env -- npx prisma generate --schema=prisma/schema.prisma",
+    "dev:generate": "dotenv -e .env.development.local -- npx prisma generate --schema=prisma-dev/schema.prisma"
   },
   "repository": {
     "type": "git",
@@ -20,9 +23,14 @@
   },
   "homepage": "https://github.com/VGOI822/speedburger#readme",
   "dependencies": {
+    "@prisma/client": "^6.12.0",
     "next": "^15.3.2",
     "next-sitemap": "^4.2.3",
     "react": "^19.1.0",
     "react-dom": "^19.1.0"
+  },
+  "devDependencies": {
+    "dotenv-cli": "^9.0.0",
+    "prisma": "^6.12.0"
   }
 }
