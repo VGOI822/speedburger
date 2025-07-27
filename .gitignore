@@ -1,3 +1,12 @@
+# Ignorar arquivos de desenvolvimento
+prisma-dev/
+.env.development.local
+generated/dev-client
+prisma/migrations/
+pages/api/ordersHistory
+pages/api/products
+
+
 # Arquivos do macOS
 .DS_Store
 
@@ -89,7 +98,6 @@ web_modules/
 
 # dotenv environment variable files
 .env
-.env.development.local
 .env.test.local
 .env.production.local
 .env.local
