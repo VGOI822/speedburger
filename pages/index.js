@@ -65,7 +65,7 @@ export default function Home({ opinioes }) {
         {/* Conteúdo adicional que vem depois da imagem de fundo */}
         <section ref={secaoAvaliacaoRef} className={styles.extraSection}>
           {opinioes.length === 0 ? (
-            <p>Nenhuma avaliação disponível no momento.</p>
+            <p>Nenhuma avaliação disponível no momento. 😔</p>
           ) : (
             <ListaAvaliacoes opinioes={opinioes} />
           )}
@@ -97,7 +97,7 @@ export default function Home({ opinioes }) {
 
 export async function getServerSideProps() {
   try {
-    const res = await fetch('http://localhost:3000/api/avaliacoes');
+    const res = await fetch('https://www.speedburgercocal.com.br/api/avaliacoes');
     const opinioes = await res.json();
 
     return {
