@@ -65,7 +65,7 @@ export default function Home({ opinioes }) {
         {/* Conteúdo adicional que vem depois da imagem de fundo */}
         <section ref={secaoAvaliacaoRef} className={styles.extraSection}>
           {opinioes.length === 0 ? (
-            <p>Nenhuma avaliação disponível no momento.</p>
+            <p>Nenhuma avaliação disponível no momento. 😔</p>
           ) : (
             <ListaAvaliacoes opinioes={opinioes} />
           )}
