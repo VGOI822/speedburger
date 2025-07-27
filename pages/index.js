@@ -2,10 +2,10 @@ import { useState, useRef } from 'react';
 import styles from '../styles/Home.module.css';
 import Head from 'next/head';
 import { WhatsAppLink } from '../lib/whatsapp';
+import ListaAvaliacoes from '../components/ListaAvaliacoes';
 
 
-
-export default function Home() {
+export default function Home({ opinioes }) {
   const [popupVisivel, setPopupVisivel] = useState(false);
   const secaoAvaliacaoRef = useRef(null);
 
@@ -27,27 +27,6 @@ export default function Home() {
     secaoAvaliacaoRef.current?.scrollIntoView({ behavior: 'smooth' });
   }
 
-
-  const opinioes = [
-    {
-      id: 1,
-      nome: "João",
-      nota: 5,
-      mensagem: "O hambúrguer estava sensacional, muito saboroso!"
-    },
-    {
-      id: 2,
-      nome: "Anônimo",
-      nota: 4,
-      mensagem: "Entrega rápida e lanche gostoso."
-    },
-    {
-      id: 3,
-      nome: "Maria",
-      nota: 3,
-      mensagem: "Gostei, mas poderia vir mais quente."
-    }
-  ];
 
 
   return (
@@ -85,20 +64,11 @@ export default function Home() {
 
         {/* Conteúdo adicional que vem depois da imagem de fundo */}
         <section ref={secaoAvaliacaoRef} className={styles.extraSection}>
-          <div className={styles.extraContent}>
-            <h2>Avaliações</h2>
-            {opinioes.map(({ id, nome, nota, mensagem }) => (
-              <div key={id} className={styles.opiniao}>
-                <div className={styles.opiniaoHeader}>
-                  <strong>{nome}</strong>
-                  <div className={styles.stars}>
-                    {'★'.repeat(nota)}{'☆'.repeat(5 - nota)}
-                  </div>
-                </div>
-                <p>{mensagem}</p>
-              </div>
-            ))}
-          </div>
+          {opinioes.length === 0 ? (
+            <p>Nenhuma avaliação disponível no momento.</p>
+          ) : (
+            <ListaAvaliacoes opinioes={opinioes} />
+          )}
         </section>
 
 
@@ -123,4 +93,23 @@ export default function Home() {
       </div>
     </>
   );
+}
+
+export async function getServerSideProps() {
+  try {
+    const res = await fetch('http://localhost:3000/api/avaliacoes');
+    const opinioes = await res.json();
+
+    return {
+      props: {
+        opinioes,
+      },
+    };
+  } catch (error) {
+    return {
+      props: {
+        opinioes: [],
+      },
+    };
+  }
 }
