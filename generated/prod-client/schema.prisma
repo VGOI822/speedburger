@@ -15,10 +15,11 @@ datasource db {
 }
 
 model Avaliacoes {
-  id        String   @id @default(uuid()) @db.Uuid
-  nome      String
-  sobrenome String
-  avaliado  Int
-  mensagem  String
-  createdAt DateTime @default(now())
+  id            String   @id @default(uuid()) @db.Uuid
+  nome          String
+  sobrenome     String
+  avaliado      Int
+  mensagem      String
+  consentimento Boolean  @default(false)
+  createdAt     DateTime @default(now())
 }

@@ -71,5 +71,6 @@ model Avaliacoes{
   sobrenome      String
   avaliado       Int
   mensagem       String
+  consentimento  Boolean      @default(false)
   createdAt      DateTime     @default(now())
 }

@@ -11,6 +11,7 @@ export default function Avaliacao() {
     });
     const [enviado, setEnviado] = useState(false);
     const [anonimizar, setAnonimizar] = useState(false);
+    const [consentido, setConsentido] = useState(false);
 
     const router = useRouter();
 
@@ -30,14 +31,26 @@ export default function Avaliacao() {
     const handleSubmit = async (e) => {
         e.preventDefault();
 
+        // Validação extra
+        if (!consentido) {
+            alert('Você precisa aceitar a Política de Privacidade para enviar sua avaliação.');
+            return;
+        }
+
+        if (form.avaliado === 0) {
+            alert('Por favor, selecione uma avaliação com estrelas antes de enviar.');
+            return;
+        }
+
         const dadosParaEnviar = {
             ...form,
             nome: anonimizar ? 'Cliente' : form.nome,
             sobrenome: anonimizar ? 'Anônimo' : form.sobrenome,
+            consentimento: consentido
         };
 
         try {
-            const response = await fetch('http://localhost:3000/api/avaliacoes', {
+            const response = await fetch('https://www.speedburgercocal.com.br/api/avaliacoes', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
@@ -49,6 +62,7 @@ export default function Avaliacao() {
                 console.log('Avaliação enviada com sucesso!');
                 setEnviado(true);
                 setForm({ nome: '', sobrenome: '', mensagem: '', avaliado: 0 });
+                setConsentido(false);
                 setAnonimizar(false);
             } else {
                 const erro = await response.json();
@@ -153,9 +167,22 @@ export default function Avaliacao() {
                         />
                     </div>
 
+                    <div style={{ marginBottom: '1rem' }}>
+                        <label>
+                            <input
+                                type="checkbox"
+                                checked={consentido}
+                                onChange={(e) => setConsentido(e.target.checked)}
+                                required
+                                style={{ marginRight: '0.5rem' }}
+                            />
+                            Li e concordo com a <a style={{ color: 'orange' }} href="/politica-de-privacidade" target="_blank" rel="noopener noreferrer">Política de Privacidade</a>
+                        </label>
+                    </div>
+
                     <button
                         type="submit"
-                        disabled={form.avaliado === 0}
+                        disabled={!consentido || form.avaliado === 0}
                         className={styles.submitButton}
                     >
                         Enviar avaliação
