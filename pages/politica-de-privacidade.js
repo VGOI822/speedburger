@@ -1,6 +1,5 @@
 import { useRouter } from 'next/router';
-//import styles from '../styles/Home.module.css'; // mantém o background
-import politicaStyles from '../styles/PoliticaDePrivacidade.module.css'; // novo css para o conteúdo
+import politicaStyles from '../styles/PoliticaDePrivacidade.module.css'; 
 
 export default function PoliticaDePrivacidade() {
   const router = useRouter();
@@ -25,6 +24,11 @@ export default function PoliticaDePrivacidade() {
           Ao clicar em "Peça pelo WhatsApp", você será redirecionado para um ambiente externo onde a comunicação ocorre
           diretamente entre você e nossa equipe.
         </p>
+        <h1 className={politicaStyles.title}>Avaliações</h1>
+        <p>Nosso site oferece a opção de deixar uma avaliação sobre nossos produtos ou serviços. Este campo é opcional e pode ser preenchido de forma anônima, se o usuário preferir.</p>
+        <p>As avaliações são exibidas publicamente no site com o objetivo de compartilhar a opinião dos clientes e melhorar nossos serviços. Recomendamos que <strong>nenhum dado pessoal sensível seja inserido na avaliação</strong>, mesmo que de forma espontânea.</p>
+        <p>Todas as informações fornecidas são tratadas conforme a Lei Geral de Proteção de Dados (Lei 13.709/2018). Se você desejar <strong>editar ou excluir</strong> uma avaliação enviada, entre em contato conosco.</p>
+        <h1 className={politicaStyles.title}>Atualizações</h1>
         <p>
           Caso passemos a coletar informações diretamente por este site no futuro, atualizaremos esta política conforme a{' '}
           <strong>Lei Geral de Proteção de Dados (Lei 13.709/2018)</strong>.
