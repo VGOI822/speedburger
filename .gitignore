@@ -1,12 +1,4 @@
-# Ignorar arquivos de desenvolvimento
-prisma-dev/
 .env.development.local
-generated/dev-client
-prisma-dev/migrations/
-pages/api/ordersHistory
-pages/api/products
-
-
 # Arquivos do macOS
 .DS_Store
 
