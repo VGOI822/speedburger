@@ -126,6 +126,7 @@ exports.Prisma.AvaliacoesScalarFieldEnum = {
   sobrenome: 'sobrenome',
   avaliado: 'avaliado',
   mensagem: 'mensagem',
+  consentimento: 'consentimento',
   createdAt: 'createdAt'
 };
 
